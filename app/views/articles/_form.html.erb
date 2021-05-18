@@ -1,27 +1,32 @@
-<% if @article.errors.any? %>
+<div class="container mt-5", id="newform">
+  <% if @article.errors.any? %>
     <h2>The following errors prevented the article from being saved:</h2>
     <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
-
-<% end %>
-
-<%= form_with(model: @article, local: true)  do |f| %>
-
-<p>
-<%= f.label :title %><br>
-<%=f.text_field :title %>
-</p>
-
-<p>
-<%= f.label :description %><br>
-<%=f.text_area :description %>
-</p>
-
-<p>
-<%= f.submit %>
-</p>
-
-<% end %>
+  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_with(model: @article,class: "shadow p-5 bg-secondary rounded", local: true)  do |f| %>
+        <div class="mb-3 form-group row">
+          <%= f.label :title, class:"form-label text-light fs-5 fw-bold "%>
+          <%=f.text_field :title, class: "form-control shadow rounded", placeholder:"Title of article   (min 6 character)" %>
+        </div>
+        <div class="mb-3 form-group row">
+          <%= f.label :description, class:"form-label text-light fs-5 fw-bold" %>
+          <%=f.text_area :description, rows:10, class:"form-control shadow rounded" , placeholder:"Description of Article\n(min 10 character)\n(max 300 character)"%>
+        </div>
+        <div class="row align-items-center text-center">
+          <div class="col">
+            <%= f.submit class: "btn btn-success" %>
+          </div>
+          <div class="col">
+            <%= link_to 'Cancel', articles_path, class:"btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
