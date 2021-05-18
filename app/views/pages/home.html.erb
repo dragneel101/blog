@@ -1,5 +1,21 @@
-<h1>This it the main root home page</h1>
-<p>Hello World!!!</p>
-
-<%= link_to 'Articles listing', articles_path %> | 
-<%= link_to 'About Page',about_path %>
+<div id="page-content">
+  <div class="container" id="home-container">
+    <div class="container-fluid text-sm-center p-5 bg-light text-white" id="homeJumbo"> <!-- bg-light is background color & p-5 is padding -->
+      <h1 class="display-2">Tech Blog</h1>
+      <div class="jumbo">
+        <p class="lead">In this ever changing era of technology, wanna keep up with the changes? 
+          If so, just sign up and visit our site. We keep everything updated for you<br/>
+          Just a click away from the updates<br/>
+          Stay connected with new Tech</p>
+      </div>
+      <button type="button" class="btn btn-success btn-lg">Sign up</button>
+    </div>
+  </div>
+  <%= link_to 'Articles listing', articles_path %> | 
+  <%= link_to 'About Page',about_path %>
+</div>
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+  <div class="container text-center">
+    <small>Copyright &copy; Your Website</small>
+  </div>
+</footer>

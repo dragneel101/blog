@@ -1,0 +1,55 @@
+@import "bootstrap/dist/css/bootstrap";
+
+.navbar {
+  background-color: rgb(22, 24, 51) !important;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255) !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+#homeJumbo {
+  margin: 0px;
+  background-image: asset-url(home_1);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  background-image: 1 linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    asset-url(home_1);
+}
+
+.jumbo {
+  color: rgb(162, 162, 231);
+}
+
+/* Sticky Footer Classes */
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: rgb(218, 218, 218);
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+/*End of Sticky footer*/
