@@ -1,0 +1,39 @@
+<h1 class="text-center mt-4"><%= @user.username %>'s profile</h1>
+<%= gravatar_for @user, size: 200 %>
+<div class="text-center mt-4">
+  <%= link_to "Edit your profile", edit_user_path(@user), class:"btn btn-outline-info mb-4"%>
+</div>
+<div class="apple_pagination mb-4" >
+  <div class="page_info">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+</div>
+<div class="container">
+  <% @user.articles.each do |article| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow-lg mb-5 bg-white rounded">
+          <div class="card-header fst-italic">
+            <%= article.user.username %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to article.title, article_path(article.title), class:"text-success" %></h5>
+            <p class="card-text"><%= truncate(article.description,length:100) %></p>
+            <%= link_to "Read More", article_path(article), class:"btn btn-primary"%>
+            <%= link_to "Edit", edit_article_path(article), class:"btn btn-info"%>
+            <%= link_to "Delete", article_path(article.id), method: :delete, class:"btn btn-danger", data: {confirm: "Are you sure?"}%>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%=time_ago_in_words(article.created_at) %> ago,
+              edited <%=time_ago_in_words(article.updated_at)%> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="apple_pagination mb-4" >
+  <div class="page_info">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+</div>
