@@ -29,8 +29,13 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success" type="submit">Search</button>
+        <% if logged_in? %>
+          <%= link_to current_user.username, user_path(current_user), class:" me-2 mt-1"%>
+          <%= link_to 'logout', logout_path, method: :delete, class:"btn btn-danger"%>
+        <% else %>
+          <%= link_to 'login', login_path, class:"btn btn-success me-2"%>
+          <%= link_to 'sign up', signup_path, class:"btn btn-success me-2"%>
+        <%end%>
       </form>
     </div>
   </div>
