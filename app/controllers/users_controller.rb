@@ -43,9 +43,16 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        session[:user_id] = nil
-        flash[:notice] = "Account and all associated articles has been successfully deleted"
-        redirect_to articles_path
+        
+        if !current_user.admin?
+            session[:user_id] = nil
+            flash[:notice] = "Account and all associated articles has been successfully deleted"
+            redirect_to articles_path  
+        else
+            flash[:notice] = "Account and all associated articles has been successfully deleted"
+            redirect_to users_path
+        end
+                  
 
     end
 
@@ -60,7 +67,7 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
             flash[:alert] = "you do not have authorization"
             redirect_to @user
         end
