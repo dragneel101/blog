@@ -1,4 +1,4 @@
-TECH BLOG
+**TECH BLOG**
 
 
 Demo: https://rkhaitu-techblog.herokuapp.com/
